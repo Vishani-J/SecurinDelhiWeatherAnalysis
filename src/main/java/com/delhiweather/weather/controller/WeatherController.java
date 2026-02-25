@@ -3,10 +3,8 @@ package com.delhiweather.weather.controller;
 import com.delhiweather.weather.dto.MonthlyTemperatureStatsDTO;
 import com.delhiweather.weather.dto.WeatherDataDTO;
 import com.delhiweather.weather.service.WeatherService;
-
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
-
 import java.time.LocalDate;
 import java.util.List;
 
@@ -15,7 +13,6 @@ import java.util.List;
 public class WeatherController {
 
     private final WeatherService weatherService;
-
     public WeatherController(WeatherService weatherService) {
         this.weatherService = weatherService;
     }
@@ -25,7 +22,6 @@ public class WeatherController {
             @RequestParam
             @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
             LocalDate date) {
-
         return weatherService.getWeatherByDate(date);
     }
 
@@ -33,7 +29,6 @@ public class WeatherController {
     public List<WeatherDataDTO> getWeatherByMonth(
             @RequestParam int year,
             @RequestParam int month) {
-
         return weatherService.getWeatherByMonth(year, month);
     }
 
